@@ -1,0 +1,4 @@
+ERROR: Line 0: Label: 'var' not declared in the scope
+ERROR: Line 1: Operand is missing
+ERROR: Line 2: Invalid Label
+ERROR: Line 2: var Mnemonic is Invalid

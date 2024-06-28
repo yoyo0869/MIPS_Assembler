@@ -1,0 +1,10 @@
+ERROR: Line 4: Label: 'nonesuch' not declared in the scope
+ERROR: Line 4: Label: label has been already declared
+ERROR: Line 5: 08ge is a wrong number format
+ERROR: Line 7: Operand is missing
+ERROR: Line 8: 5, is a wrong number format
+ERROR: Line 8: Operand is missing
+ERROR: Line 9: Operand is missing
+ERROR: Line 10: id label format: 
+ERROR: Line 11: fibble Mnemonic is Invalid
+ERROR: Line 12: 0def Mnemonic is Invalid

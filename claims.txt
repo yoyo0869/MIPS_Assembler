@@ -1,0 +1,165 @@
+/*****************************************************************************
+TITLE: Claims																																
+AUTHOR: Yuvraj Verma
+ROLL NUMBER: 2201CS80
+Declaration of Authorship
+This txt file, claims.txt, is part of the assignment of CS210 at the 
+department of Computer Science and Engg, IIT Patna . 
+*****************************************************************************/
+
+Files:
+==========
+*All the files I submitted, asm.cpp and emu.cpp and claims.txt, have my name and student id at the start, along with a declaration of authorship.
+
+I have tested my assembler with the given test samples along with three other codes. I have also generated the trace file from emulator. I have combined all the tests separately in folders.
+
+*Both of my cpp programs did not show any errors and warnings when i compiled it with
+g++ -std=c++17 -pedantic -W -Wall -Wpointer-arith -Wwrite-strings 
+1. The assembler:
+
+    * with two data structures to store respectively labels and mnemonic table with expected operands.
+    * reads into an internal form on the first pass.
+    * detects label errors.
+    * consistent and sensible formatting with sensible program structure. 
+    * sensible variable, function & type names with explanatory comments.
+		* advanced listing file.
+		* assembles test programs.
+	  * can implements and demonstrates the instruction SET.
+
+2. The emulator :
+
+		* with three data structures to store respectively memory, mnemonic table with expected operands
+		  and a vector for instructions.
+    * loads object file, 
+    * by giving the instructions like "-before/-after" , the program can produce memory dump before/after execution.
+    * by giving the instruction like "-trace", the program prints the result of program executed.
+    * detects errant programs.
+
+
+=============================
+Testing:
+=============================
+
+1. The assembler:
+
+I have tested four examples shown as bellow. The errors only occurred in the file test1.asm and 
+the program immediately stopped on the second pass. 
+
+The others were tested without any errors detected and produced three output files, listing file, 
+error log file and machine readable object file, for each example. 
+
+1)
+#Input: asm test1.asm
+#Output: 
+a. test1.l 
+b. test1.log (without any error messages)
+c. test1.o
+
+2)
+#Input:asm test2.asm
+#Output: 
+a. test2.l (empty)
+b. test2.log (with error messages shown in log file)
+c. test2.o (empty)
+
+Error messages:
+ERROR: Line 4: Label: 'nonesuch' not declared in the scope
+ERROR: Line 4: Label: label has been already declared
+ERROR: Line 5: 08ge is a wrong number format
+ERROR: Line 7: Operand is missing
+ERROR: Line 8: 5, is a wrong number format
+ERROR: Line 8: Operand is missing
+ERROR: Line 9: Operand is missing
+ERROR: Line 10: id label format: 
+ERROR: Line 11: fibble Mnemonic is Invalid
+ERROR: Line 12: 0def Mnemonic is Invalid
+
+3)
+#Input:asm test3.asm
+#Output: 
+a. test3.l 
+b. test3.log (without any error messages)
+c. test3.o
+
+
+4)
+#Input:asm test4.asm
+#Output: 
+a. test4.l 
+b. test4.log (without any error messages)
+c. test4.o
+
+5) #Input:asm sum.asm
+#Output: 
+a. sum.l 
+b. sum.log (without any error messages)
+c. sum.o 
+
+6) #Input:asm swap.asm
+#Output: 
+a. swap.l 
+b. swap.log (without any error messages)
+c. swap.o 
+
+7) #Input:asm rc_perimeter.asm
+#Output: 
+a. rc_perimeter.l 
+b. rc_perimeter.log (without any error messages)
+c. rc_perimeter.o 
+
+2. The emulator:
+
+I have tested four examples shown as bellow. 
+A warning has been generated if the emulator does not find the HALT instruction.
+Note that test1 results in an infinite loop. 
+and would produce incredibly large trace file if emulated. 
+
+The others were tested without any errors detected and produced excution data both on the screen and 
+output text file for each example according to the usage instruction. 
+
+After running the bin file given, the trace data are the same as 
+the implemented result from my own program.
+
+1)
+#Input:emu -trace test3.o
+#Output: test3.trace
+Writing trace file.
+Warning: Reached end of file without recieving HALT instruction. Program terminated.
+2 instructions executed.
+
+
+2)
+#Input: emu -trace test4.o
+#Output: test4.trace
+Writing trace file.
+47654 instructions executed.
+
+
+3)
+#Input: emu -trace swap.o
+#Output: swap.trace
+Writing trace file.
+13 instructions executed.
+
+
+3)
+#Input: emu -trace rc_perimeter.o
+#Output: rc_perimeter.trace
+Writing trace file.
+15 instructions executed.
+
+
+4)
+#Input: emu -after swap.o
+#Output: 
+Memory Dump:
+
+00000000 00000d00 00000004 00000e00 00000004
+00000004 ffffff0a 00000003 00000e00 00000005
+00000008 00000002 00000d00 00000005 0000010a
+0000000c 00000012 fffff111 00000017
+000fffff fffff111
+
+13 instructions executed.
+
+All the test codes and their corresponding logfile, listing file, object code file and trace file(if no errors) have been combined in separate folders.
